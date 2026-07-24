@@ -1,0 +1,50 @@
+{
+  "person": "杨鹏",
+  "aliases": [
+    "杨鹏先生"
+  ],
+  "seed_urls": [
+    "https://cbs.sass.org.cn/2024/0125/c7436a563153/page.htm",
+    "https://zqb.cyol.com/content/2004-11/24/content_993841.htm",
+    "https://www.overdrive.com/media/9051737/%E5%9B%BE%E8%A7%A3%E8%80%81%E5%AD%90%E8%AF%A6%E8%A7%A3",
+    "https://jp.tfswufe.edu.cn/opac/book/066e4c09353abcca8b38e4b9532324d1",
+    "https://www.chinachristiantimes.com/news/16586/%E4%B8%93%E8%AE%BF%E3%80%8A%E2%80%9C%E4%B8%8A%E5%B8%9D%E5%9C%A8%E4%B8%AD%E5%9B%BD%E2%80%9D%E6%BA%90%E6%B5%81%E8%80%83%E3%80%8B%E4%BD%9C%E8%80%85%E6%9D%A8%E9%B9%8F%EF%BC%9A%E2%80%9C%E4%B8%8A%E5%B8%9D%E2%80%9D%E4%B8%8E%E2%80%9C%E5%A4%A9%E2%80%9D%E5%B4%87%E6%8B%9C%E6%98%AF%E4%B8%AD%E5%9B%BD%E4%BC%A0%E7%BB%9F%E6%96%87%E5%8C%96%E6%9C%80%E9%AB%98%E4%B9%8B%E9%AD%82",
+    "https://chinesecs.cn/2025.html",
+    "https://cnreform.caixin.com/2014-07-30/100710880.html",
+    "https://www.bookschina.com/6615745.htm",
+    "https://www.zhuanzhiai.com/document/06729cfc733367a13a3fcb4e810fcc9e",
+    "https://www.sohu.com/a/808487362_166112",
+    "https://k.sina.cn/article_6536387400_185995b48019010vq1.html",
+    "https://bostonese.com/2015/05/harvard-salon-discusses-confucianism-as-religion-of-government/",
+    "https://www.chinadevelopmentbrief.org.cn/news/detail/19149.html",
+    "https://book.douban.com/subject/27176676/",
+    "https://search.worldcat.org/de/title/910621273",
+    "https://hotbook.nbt.edu.cn/nbt/?id=103817&what=detail",
+    "https://www.sohu.com/a/745467426_353249",
+    "https://iguoxue.ifeng.com/54763779/news.shtml"
+  ],
+  "allowed_domains": [
+    "cbs.sass.org.cn",
+    "zqb.cyol.com",
+    "overdrive.com",
+    "jp.tfswufe.edu.cn",
+    "chinachristiantimes.com",
+    "chinesecs.cn",
+    "cnreform.caixin.com",
+    "bookschina.com",
+    "zhuanzhiai.com",
+    "sohu.com",
+    "k.sina.cn",
+    "bostonese.com",
+    "chinadevelopmentbrief.org.cn",
+    "book.douban.com",
+    "search.worldcat.org",
+    "hotbook.nbt.edu.cn",
+    "iguoxue.ifeng.com"
+  ],
+  "max_pages": 30,
+  "max_pages_per_domain": 8,
+  "follow_links": false,
+  "delay_seconds": 2.0,
+  "output_csv": "data/yang_peng_public_info.csv"
+}

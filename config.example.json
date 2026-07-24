@@ -1,0 +1,15 @@
+{
+  "person": "示例人物",
+  "aliases": ["英文名或常用别名"],
+  "seed_urls": [
+    "https://example.com/"
+  ],
+  "allowed_domains": [
+    "example.com"
+  ],
+  "max_pages": 30,
+  "max_pages_per_domain": 8,
+  "follow_links": false,
+  "delay_seconds": 1.5,
+  "output_csv": "data/public_figure.csv"
+}
