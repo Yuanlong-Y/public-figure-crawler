@@ -3,3 +3,10 @@ __pycache__/
 *.pyc
 .vscode/
 data/
+
+# Local config
+config.json
+
+# Generated results
+result.txt
+crawl_results.txt

@@ -1,5 +1,0 @@
-Example Domainhttps://example.com | Example Domain
-https://www.python.org | Welcome to Python.org
-https://example.com | Example Domain
-https://www.python.org | Welcome to Python.org
-https://www.python.org | Welcome to Python.org
