@@ -2,7 +2,7 @@ import time
 import requests
 from bs4 import BeautifulSoup
 
-# 读取 crawler.py 保存的网址
+# 读取待检查的网址列表
 with open("links.txt", "r", encoding="utf-8") as file:
     links = file.readlines()
 
