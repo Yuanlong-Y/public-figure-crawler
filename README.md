@@ -20,6 +20,18 @@ python -m venv .venv
 python -m pip install -r requirements.txt
 ```
 
+
+## 运行测试
+
+本项目使用 Python 内置的 `unittest`：
+
+```powershell
+python -m unittest test_crawler.py
+```
+
+测试全部通过时，终端会显示 `OK`。
+
+
 ## 使用方法
 
 1. 复制 `config.example.json` 为 `config.json`。
