@@ -2,6 +2,24 @@
 
 这是一个学习用途的基础爬虫。它从你明确指定的公开网页开始，在允许的域名内查找与某位公众人物相关的页面，并将标题、日期、上下文摘要和原始链接保存为 CSV。
 
+
+## 环境准备
+
+建议使用 Python 3.10 或更高版本。
+
+在 PowerShell 中创建并激活虚拟环境：
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+安装项目依赖：
+
+```powershell
+python -m pip install -r requirements.txt
+```
+
 ## 使用方法
 
 1. 复制 `config.example.json` 为 `config.json`。
