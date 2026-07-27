@@ -281,9 +281,16 @@ def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
 
 
 def main() -> None:
+    log_dir = Path("logs")
+    log_dir.mkdir(exist_ok=True)
+
     logging.basicConfig(
         level=logging.INFO,
-        format="%(levelname)s: %(message)s",
+        format="%(asctime)s %(levelname)s: %(message)s",
+        handlers=[
+            logging.StreamHandler(),
+            logging.FileHandler(log_dir / "crawler.log", encoding="utf-8"),
+        ],
     )
 
     parser = argparse.ArgumentParser(description="采集指定公开来源中的公众人物相关页面")
