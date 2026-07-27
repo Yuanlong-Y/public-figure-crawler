@@ -21,12 +21,16 @@ from urllib.robotparser import RobotFileParser
 import requests
 from bs4 import BeautifulSoup
 
+import logging
+
 
 USER_AGENT = "PublicFigureResearchBot/1.0 (+personal research; respectful crawling)"
 DATE_PATTERNS = (
     re.compile(r"\b(20\d{2}[-/.年]\d{1,2}[-/.月]\d{1,2}日?)\b"),
     re.compile(r"\b(20\d{2}-\d{2}-\d{2}T[\d:.+-]+Z?)\b"),
 )
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True)
@@ -205,7 +209,7 @@ class PublicFigureCrawler:
             pages_per_domain[domain] = pages_per_domain.get(domain, 0) + 1
 
             if not self.robot_allows(url):
-                print(f"[跳过 robots.txt 禁止的页面] {url}")
+                logger.warning("跳过 robots.txt 禁止的页面：%s", url)
                 continue
 
             try:
@@ -214,7 +218,7 @@ class PublicFigureCrawler:
                 if "text/html" not in response.headers.get("Content-Type", ""):
                     continue
             except requests.RequestException as error:
-                print(f"[访问失败] {url}：{error}")
+                logger.warning("访问失败：%s：%s", url, error)
                 continue
 
             html = decode_html(response.content, response.encoding, names)
@@ -234,9 +238,9 @@ class PublicFigureCrawler:
                         "collected_at": datetime.now(timezone.utc).isoformat(),
                     }
                 )
-                print(f"[找到相关页面] {title or '(无标题)'}")
+                logger.info("找到相关页面：%s", title or "(无标题)")
             else:
-                print(f"[已检查] {url}")
+                logger.info("已检查：%s", url)
 
             if self.settings.follow_links:
                 for link in soup.select("a[href]"):
@@ -277,6 +281,11 @@ def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
 
 
 def main() -> None:
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(levelname)s: %(message)s",
+    )
+
     parser = argparse.ArgumentParser(description="采集指定公开来源中的公众人物相关页面")
     parser.add_argument("-c", "--config", default="config.json", help="JSON 配置文件路径")
     args = parser.parse_args()
@@ -285,8 +294,8 @@ def main() -> None:
     crawler = PublicFigureCrawler(settings)
     rows = crawler.crawl()
     write_csv(settings.output_csv, rows)
-    print(f"\n完成：找到 {len(rows)} 个相关页面，结果保存到 {settings.output_csv}")
-
+    logger.info("完成：找到 %s 个相关页面，结果保存到 %s", len(rows), settings.output_csv)
+    
 
 if __name__ == "__main__":
     main()
