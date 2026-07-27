@@ -1,7 +1,6 @@
 import unittest
 
-from crawler import domain_allowed, normalize_url
-
+from crawler import deduplicate, domain_allowed, normalize_url
 
 class NormalizeUrlTests(unittest.TestCase):
     def test_removes_fragment(self):
@@ -25,5 +24,27 @@ class DomainAllowedTests(unittest.TestCase):
         self.assertFalse(domain_allowed("https://notexample.com/page", allowed))
 
 
+class DeduplicateTests(unittest.TestCase):
+    def test_keeps_first_row_for_same_source_url(self):
+        rows = [
+            {"source_url": "https://example.com/a", "title": "First"},
+            {"source_url": "https://example.com/a", "title": "Second"},
+        ]
+
+        result = deduplicate(rows)
+
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]["title"], "First")
+
+    def test_treats_trailing_slash_as_same_source_url(self):
+        rows = [
+        {"source_url": "https://example.com/a/", "title": "With slash"},
+        {"source_url": "https://example.com/a", "title": "Without slash"},
+        ]
+
+        result = deduplicate(rows)
+
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]["title"], "With slash")
 if __name__ == "__main__":
     unittest.main()
