@@ -10,3 +10,5 @@ config.json
 # Generated results
 result.txt
 crawl_results.txt
+
+logs/
